@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard - GymTracker</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>GymTracker</h1>
+      <div class="user-actions">
+        <span class="welcome">Hola, <%= username %>!</span>
+        <form method="POST" action="/logout" class="inline">
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+          <button type="submit">Cerrar Sesión</button>
+        </form>
+      </div>
+    </div>
+
+    <section class="card">
+      <h2>Nueva Rutina</h2>
+      <form method="POST" action="/routines">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+        <label>Título
+          <input type="text" name="title" required />
+        </label>
+        <label>Descripción
+          <textarea name="description" rows="3" required></textarea>
+        </label>
+        <button type="submit">Guardar Rutina</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Tus Rutinas</h2>
+      <ul class="list">
+        <% routines.forEach(r => { %>
+          <li><strong><%= r.title %></strong> — <%= r.description %> <small>(<%= r.created_at %>)</small></li>
+        <% }) %>
+      </ul>
+    </section>
+  </div>
+</body>
+</html>

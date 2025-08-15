@@ -1,0 +1,23 @@
+{
+  "name": "gymtracker",
+  "version": "1.1.0",
+  "description": "GymTracker - Rutinas con login/sesiones/SQLite. SAST/DAST/Docker/Trivy.",
+  "main": "app.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node app.js",
+    "seed": "node seed.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "connect-sqlite3": "^0.9.15",
+    "cookie-parser": "^1.4.6",
+    "csurf": "^1.11.0",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "express-validator": "^7.2.0",
+    "helmet": "^7.1.0",
+    "sqlite3": "^5.1.7"
+  }
+}
